@@ -9,7 +9,7 @@ What are customers most unhappy about in Amazon Electronics products,
 and what actions should the product and operations teams take?
 
 ## Live Demo
-[🚀 Open Streamlit App](https://coming-soon)
+[🚀 Open Streamlit App](https://amazon-electronics-review-analyzer-ja5vjafas6dwf9iazr5scb.streamlit.app/)
 
 ## Key Findings
 - **18.2% negative review rate** across 104,986 reviews (avg rating 4.08/5)
