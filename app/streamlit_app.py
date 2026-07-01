@@ -167,10 +167,10 @@ FORMAT: Executive Summary | Top 3 Issues | 3 Recommendations | Risk if unaddress
     else:
         # Show the pre-generated brief by default
         try:
-    with open("memos/ai_product_brief.txt", "r") as f:
-        st.write(f.read())
-except:
-    st.info("Click the button to generate the brief.")
+            with open("memos/ai_product_brief.txt", "r") as f:
+                st.write(f.read())
+        except:
+            st.info("Click the button to generate the brief.")
 
 st.divider()
 
