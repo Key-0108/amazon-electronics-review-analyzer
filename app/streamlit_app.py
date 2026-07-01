@@ -18,9 +18,9 @@ st.set_page_config(
 # ── Load data ─────────────────────────────────────────────────
 @st.cache_data
 def load_data():
-    df = pd.read_csv(r"C:\Users\keert\Projects\BA_1\data\amazon_reviews_with_sentiment.csv")
-    neg = pd.read_csv(r"C:\Users\keert\Projects\BA_1\data\negative_reviews_with_themes.csv")
-    themes = pd.read_csv(r"C:\Users\keert\Projects\BA_1\data\theme_counts.csv",
+    df = pd.read_csv("data/amazon_reviews_with_sentiment.csv")
+    neg = pd.read_csv("data/negative_reviews_with_themes.csv")
+    themes = pd.read_csv("data/theme_counts.csv",
                          names=['theme', 'count'], header=0)
     return df, neg, themes
 
@@ -167,10 +167,10 @@ FORMAT: Executive Summary | Top 3 Issues | 3 Recommendations | Risk if unaddress
     else:
         # Show the pre-generated brief by default
         try:
-            with open(r"C:\Users\keert\Projects\BA_1\memos\ai_product_brief.txt", "r") as f:
-                st.write(f.read())
-        except:
-            st.info("Click the button to generate the brief.")
+    with open("memos/ai_product_brief.txt", "r") as f:
+        st.write(f.read())
+except:
+    st.info("Click the button to generate the brief.")
 
 st.divider()
 
