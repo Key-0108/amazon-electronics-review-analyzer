@@ -1,4 +1,4 @@
-# Amazon Electronics — AI Review Analyzer
+# Amazon Electronics - AI Review Analyzer
 
 An end-to-end NLP and GenAI pipeline that analyzes 104,986 Amazon 
 Electronics customer reviews to identify complaint themes and generate 
@@ -13,20 +13,20 @@ and what actions should the product and operations teams take?
 
 ## Key Findings
 - **18.2% negative review rate** across 104,986 reviews (avg rating 4.08/5)
-- **Device & connectivity issues** is the #1 complaint — 6,056 reviews (32%)
-- **Defective on arrival** affects 17% of complainers — a direct QC/logistics fix
+- **Device & connectivity issues** is the #1 complaint - 6,056 reviews (32%)
+- **Defective on arrival** affects 17% of complainers - a direct QC/logistics fix
 - HuggingFace Transformer outperforms TextBlob by **13 points accuracy** 
-  (80.4% vs 67.4%) — critical for catching sarcastic/mixed-language complaints
+  (80.4% vs 67.4%) - critical for catching sarcastic/mixed-language complaints
 
 ## What I Built
 - **EDA** on 104,986 reviews (ratings, sentiment trends, verified vs unverified)
-- **Sentiment classification** — compared 3 approaches:
+- **Sentiment classification** - compared 3 approaches:
   - Star-rating baseline
-  - TextBlob (rule-based) — 67.4% accuracy, F1: 0.442
-  - HuggingFace Transformer (cardiffnlp/twitter-roberta) — 80.4% accuracy, F1: 0.613
-- **LDA topic modeling** — extracted 6 complaint themes from 19,070 negative reviews
-- **Claude API** — generates PM-style executive product health brief from findings
-- **Streamlit app** — interactive dashboard deployed publicly
+  - TextBlob (rule-based) - 67.4% accuracy, F1: 0.442
+  - HuggingFace Transformer (cardiffnlp/twitter-roberta) - 80.4% accuracy, F1: 0.613
+- **LDA topic modeling** - extracted 6 complaint themes from 19,070 negative reviews
+- **Claude API** - generates PM-style executive product health brief from findings
+- **Streamlit app** - interactive dashboard deployed publicly
 
 ## Tech Stack
 | Layer | Tools |
@@ -41,34 +41,37 @@ and what actions should the product and operations teams take?
 | BI Dashboard | Power BI |
 
 ## Project Structure
-amazon-reviews-analysis/
-├── data/                          # processed CSVs
-├── notebooks/
-|   ├── 00_data_download           
-│   ├── 01_eda.ipynb               # exploratory data analysis
-│   ├── 02_sentiment_nlp.ipynb     # sentiment modeling & comparison
-│   └── 03_theme_extraction.ipynb  # LDA complaint theme extraction
+```
+amazon-electronics-review-analyzer/
 ├── app/
-│   └── streamlit_app.py           # deployed interactive dashboard
+│   └── streamlit_app.py
+├── data/
+│   ├── amazon_reviews_electronics.csv
+│   ├── amazon_reviews_with_sentiment.csv
+│   ├── negative_reviews_with_themes.csv
+│   ├── theme_counts.csv
+│   ├── complaint_themes.png
+│   └── model_comparison.png
+├── images/
+│   ├── dashboard_screenshot.png
+│   ├── rating_distribution.png
+│   ├── review_length_sentiment.png
+│   ├── reviews_over_time.png
+│   ├── textblob_confusion.png
+│   └── verified_vs_unverified.png
 ├── memos/
-│   └── ai_product_brief.txt       # Claude-generated executive brief
+│   └── ai_product_brief.txt
+├── notebooks/
+│   ├── 00_data_download.ipynb
+│   ├── 01_eda.ipynb
+│   ├── 02_sentiment.ipynb
+│   └── 03_theme_extraction.ipynb
+├── .gitignore
 ├── requirements.txt
 └── README.md
+```
 
-**=== PROJECT 1A SUMMARY ===**
-Dataset: 104,986 reviews
-Avg rating: 4.08 / 5
-Negative reviews: 19,070 (18.2%)
-TextBlob accuracy: 67.4% | F1: 0.442
-HuggingFace accuracy: 80.4% | F1: 0.613
-
-Top complaint theme: Device & connectivity issues (32%)
-Most actionable: Defective on arrival (17%) — direct QC fix
-
-Files saved:
-  data/amazon_reviews_with_sentiment.csv
-  data/negative_reviews_with_themes.csv
-  data/theme_counts.csv
-  data/complaint_themes.png
-  data/model_comparison.png
-  memos/ai_product_brief.txt
+## Dataset
+Amazon Reviews 2023 — Electronics subset  
+Source: McAuley-Lab/Amazon-Reviews-2023 (HuggingFace)  
+Size: 104,986 reviews sampled from 22M+ record dataset
